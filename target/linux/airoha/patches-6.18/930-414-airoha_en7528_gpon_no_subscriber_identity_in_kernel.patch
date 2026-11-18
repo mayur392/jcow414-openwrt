@@ -66,7 +66,7 @@ Make the image usable with any subscription:
 +	u32 omci = gpon_read(priv, GPON_OMCI_ID);
 +	u8 onu_id = gpon_read(priv, GPON_ONU_ID) & ONU_ID_MASK;
 +
-+	if (!gem_port_id)
++	if (!gem_port_id || gem_port_id == 5 || gem_port_id == 17)
 +		return true;
 +	if ((omci & OMCI_PORT_VLD) && gem_port_id == (omci & OMCI_GPID_MASK))
 +		return true;
